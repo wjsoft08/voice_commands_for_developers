@@ -1,0 +1,117 @@
+RootWidget:
+
+<RootWidget>:
+    screen_manager: screen_manager
+    ScreenManager:
+        id: screen_manager
+        current: 'path_menu'
+        pos: root.pos
+        size: root.size
+        PathMenu:
+            id: PathMenu
+            screen_manager: root
+            size: root.size
+            pos: root.pos
+        PlayMenu:
+            id: PlayMenu
+            screen_manager: root
+            size: root.size
+            pos: root.pos
+
+
+<CustButton@Button>:
+    font_size: 16
+
+<PathMenu>:
+    screen_manager: self.screen_manager
+    id: PathMenu
+    BoxLayout:
+        id: filePath
+        orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                id: 'Eclipse'
+                text: 'Eclipse'
+            TextInput:
+                id: pathInput
+                text: ''
+            CustButton:
+                text: "choose path"
+                on_press: root.set_path(pathInput)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                id: 'NotePad++'
+                text: 'NotePad++'
+            TextInput:
+                id: pathInput2
+                text: ''
+            CustButton:
+                text: "choose path"
+                on_press: root.set_path(pathInput2)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                id: 'VSCode'
+                text: 'VSCode'
+            TextInput:
+                id: pathInput3
+                text: ''
+            CustButton:
+                text: "choose path"
+                on_press: root.set_path(pathInput3)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            CustButton:
+                text: "save paths"
+                on_press: root.save_paths(pathInput.text, pathInput2.text, pathInput3.text, root.screen_manager, root.name)
+
+
+<PlayMenu>:
+    screen_manager: self.screen_manager
+    id: PlayMenu
+    GridLayout:
+        rows: 3
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            spacing: 10
+
+            # Make the background for the toolbar white
+            canvas:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Button:
+                id: myButton
+                on_press: root.screen_manager.set_state(root.name)
+                width:30
+
+        ScrollView:
+            id: MessageScrollView
+            size: 1, 0.9
+            do_scroll_x: True
+            BoxLayout:
+                id: messages
+                orientation: 'vertical'
+                size_hint: (1, None)
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            spacing: 10
+            orientation: 'horizontal'
+
+            CustButton:
+                text: "Play"
+                on_press: root.play_clicked()
+            CustButton:
+                text: "Stop"
+                on_press: root.stop_clicked()

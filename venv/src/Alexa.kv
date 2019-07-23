@@ -1,0 +1,50 @@
+<CustButton@Button>:
+    font_size: 16
+
+# Define id so I can refer to the CalcGridLayout
+# class functions
+# Display points to the entry widget
+<PathBoxLayout>:
+    id: filePath
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            id: 'Eclipse'
+            text: 'Eclipse'
+        TextInput:
+            id: pathInput
+            text: ''
+        CustButton:
+            text: "choose path"
+            on_press: root.setpath(pathInput)
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            id: 'NotePad++'
+            text: 'NotePad++'
+        TextInput:
+            id: pathInput2
+            text: ''
+        CustButton:
+            text: "choose path"
+            on_press: root.setpath(pathInput2)
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            id: 'VSCode'
+            text: 'VSCode'
+        TextInput:
+            id: pathInput3
+            text: ''
+        CustButton:
+            text: "choose path"
+            on_press: root.setpath(pathInput3)
+
+    BoxLayout:
+        orientation: 'horizontal'
+        CustButton:
+            text: "save paths"
+            on_press: root.savepaths(pathInput.text, pathInput2.text, pathInput3.text)
