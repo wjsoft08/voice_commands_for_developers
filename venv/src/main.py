@@ -22,6 +22,10 @@ class PathMenu(Screen):
                 inputText.text = "Error"
 
     def save_paths(self, eclipsePath, notepadPath, vscodePath, screenManager,rootName):
+
+        print(eclipsePath)
+        print(notepadPath)
+        print(vscodePath)
         f = open("filePaths.txt", "w+")
         f.write("Eclipse="+eclipsePath+"\n")
         f.write("Notepad++=" + notepadPath + "\n")
@@ -73,9 +77,9 @@ class AlexaDevApp(App):
         try:
             f = open("filePaths.txt", "r")
             if f.mode == 'r':
-                eclipsepath = f.readline().split('=')[1]
-                notepadpath = f.readline().split('=')[1]
-                vscodepath = f.readline().split('=')[1]
+                eclipsepath = f.readline().split('=')[1].splitlines()[0]
+                notepadpath = f.readline().split('=')[1].splitlines()[0]
+                vscodepath = f.readline().split('=')[1].splitlines()[0]
                 self.root.ids.PathMenu.ids.pathInput.text = eclipsepath
                 self.root.ids.PathMenu.ids.pathInput2.text = notepadpath
                 self.root.ids.PathMenu.ids.pathInput3.text = vscodepath
