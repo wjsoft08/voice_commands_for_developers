@@ -7,7 +7,13 @@ import tkinter as tk
 from tkinter import filedialog
 from kivy.core.window import Window
 
+import time
+import message_processor
+import button_test
+from datetime import timedelta
+
 Window.size = (300,500)
+
 
 class PathMenu(Screen):
     name = StringProperty('path_menu')
@@ -45,10 +51,10 @@ class PlayMenu(Screen):
         self.h = i
         self.ids.messages.size = (1, self.h * 150)
         print('connect starting of alexa app here')
-
+        message_processor.switchon()
+        
     def stop_clicked(self):
-        print('disconnect alexa here')
-
+        message_processor.switchoff()
 
 class RootWidget(Widget):
     state = StringProperty('set_main_menu_state')
