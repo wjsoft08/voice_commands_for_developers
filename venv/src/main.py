@@ -7,9 +7,7 @@ import tkinter as tk
 from tkinter import filedialog
 from kivy.core.window import Window
 
-import time
 import message_processor
-import button_test
 from datetime import timedelta
 
 Window.size = (300,500)
@@ -34,8 +32,8 @@ class PathMenu(Screen):
         print(vscodePath)
         f = open("filePaths.txt", "w+")
         f.write("Eclipse="+eclipsePath+"\n")
-        f.write("Notepad++=" + notepadPath + "\n")
-        f.write("VSCode=" + vscodePath + "\n")
+        f.write("IntelliJ=" + notepadPath+ "\n")
+        f.write("VSCode=" + vscodePath)
         f.close()
         print('File path saved')
         print(rootName)
