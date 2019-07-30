@@ -44,8 +44,8 @@ RootWidget:
         BoxLayout:
             orientation: 'horizontal'
             Label:
-                id: 'NotePad++'
-                text: 'NotePad++'
+                id: 'Intellij'
+                text: 'Intellij'
             TextInput:
                 id: pathInput2
                 text: ''
@@ -67,9 +67,33 @@ RootWidget:
 
         BoxLayout:
             orientation: 'horizontal'
+            Label:
+                id: 'Chrome'
+                text: 'Chrome'
+            TextInput:
+                id: pathInput4
+                text: ''
+            CustButton:
+                text: "choose path"
+                on_press: root.set_path(pathInput4)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                id: 'GitHubDesktop'
+                text: 'GitHub Desktop'
+            TextInput:
+                id: pathInput5
+                text: ''
+            CustButton:
+                text: "choose path"
+                on_press: root.set_path(pathInput5)
+
+        BoxLayout:
+            orientation: 'horizontal'
             CustButton:
                 text: "save paths"
-                on_press: root.save_paths(pathInput.text, pathInput2.text, pathInput3.text, root.screen_manager, root.name)
+                on_press: root.save_paths(pathInput.text, pathInput2.text, pathInput3.text, pathInput4.text, pathInput5.text, root.screen_manager, root.name)
 
 
 <PlayMenu>:

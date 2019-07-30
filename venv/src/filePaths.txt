@@ -1,3 +1,5 @@
-Eclipse=C:/Users/User/Downloads/AniGo Pro Xem phim anime vietsub online free_v1.0.4_apkpure.com.apk
-Notepad++=C:/Users/User/Downloads/bitfinex.apk
-VSCode=C:/Users/User/Downloads/COMPSCI-702-Notes.pdf
+Eclipse=C:/Users/User/Downloads/Assignmment1_updated (1).pdf
+IntelliJ=C:/Users/User/Downloads/Assignmment1_updated.pdf
+VSCode=C:/Users/User/Downloads/Assignmment1_updated.pdf
+Chrome=C:/Users/User/Downloads/COMPSCI-702-Notes.pdf
+GitHubDesktop=C:/Users/User/Downloads/COMPSCI-702-Notes.pdf
