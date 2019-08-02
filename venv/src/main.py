@@ -25,7 +25,7 @@ class PathMenu(Screen):
             except Exception:
                 inputText.text = "Error"
 
-    def save_paths(self, eclipsePath, notepadPath, vscodePath, screenManager,rootName):
+    def save_paths(self, eclipsePath, notepadPath, vscodePath, chromePath, githubPath, screenManager,rootName):
 
         print(eclipsePath)
         print(notepadPath)
@@ -33,7 +33,9 @@ class PathMenu(Screen):
         f = open("filePaths.txt", "w+")
         f.write("Eclipse="+eclipsePath+"\n")
         f.write("IntelliJ=" + notepadPath+ "\n")
-        f.write("VSCode=" + vscodePath)
+        f.write("VSCode=" + vscodePath+ "\n")
+        f.write("Chrome=" + chromePath+ "\n")
+        f.write("GitHubDesktop=" + githubPath)
         f.close()
         print('File path saved')
         print(rootName)
@@ -82,11 +84,15 @@ class AlexaDevApp(App):
             f = open("filePaths.txt", "r")
             if f.mode == 'r':
                 eclipsepath = f.readline().split('=')[1].splitlines()[0]
-                notepadpath = f.readline().split('=')[1].splitlines()[0]
+                intellijpath = f.readline().split('=')[1].splitlines()[0]
                 vscodepath = f.readline().split('=')[1].splitlines()[0]
+                chromepath = f.readline().split('=')[1].splitlines()[0]
+                githubpath = f.readline().split('=')[1].splitlines()[0]
                 self.root.ids.PathMenu.ids.pathInput.text = eclipsepath
-                self.root.ids.PathMenu.ids.pathInput2.text = notepadpath
+                self.root.ids.PathMenu.ids.pathInput2.text = intellijpath
                 self.root.ids.PathMenu.ids.pathInput3.text = vscodepath
+                self.root.ids.PathMenu.ids.pathInput4.text = chromepath
+                self.root.ids.PathMenu.ids.pathInput5.text = githubpath
         except Exception:
             print("file error")
 
