@@ -10,20 +10,18 @@ import win32com.client
 import os
 import webbrowser
 import psutil
+import pythoncom
 
 d = {}
-
-def open_notepad():
-    shell = win32com.client.Dispatch("WScript.Shell")
-    shell.Run("Notepad++")
     
 def close_notepad():
     os.system("taskkill /im notepad++.exe /f")
     
 def open_visualStudioCode():
     global d
-    print(d['VSCode'])
-    subprocess.call([d['VSCode']])
+    path = d['VSCode'].rstrip()
+    print(path)
+    subprocess.call(path)
 #    path = 'C:\\Users\\jenny\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe'
 #    subprocess.Popen([path])
 
@@ -36,20 +34,23 @@ def open_chrome():
 
 def open_eclipse():
     global d
-    subprocess.call([d['Eclipse']])
+    path = d['Eclipse'].rstrip()
+    print(path)
+    subprocess.call(path)
        
 def open_intelliJ():
     global d
-    subprocess.call([d['IntelliJ']])
+    path = d['IntelliJ'].rstrip()
+    print(path)
+    subprocess.call(path)
 #    path = 'C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2018.1.6\\bin\\idea64.exe'
 #    subprocess.Popen([path])
 
 def open_github():
     path = 'C:\\Users\\jenny\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
-    subprocess.Popen([path])
+    subprocess.call([path])
     
 def open_program(message):
-    print(message)
     
     path_file = open("filePaths.txt", "r")
 
@@ -60,14 +61,19 @@ def open_program(message):
     
     path_file.close()
 
-    if message == "notepad":
-        open_notepad()
+    if "notepad" in message:
+        print(message)
+        pythoncom.CoInitialize()
+        shell = win32com.client.Dispatch("WScript.Shell")
+        shell.Run("Notepad++")
     elif message == "visual studio code":
         open_visualStudioCode()
     elif message == "eclipse":
         open_eclipse()
-    elif message == "git":
+    elif "git" in message or "github" in message or "git hub" in message:
         open_github()
+    elif "intellij" in message or "intelli j" in message:
+        open_intelliJ()
     elif message == "chrome" or message == "browser":
         open_chrome()
 
