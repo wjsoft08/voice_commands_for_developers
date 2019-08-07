@@ -21,7 +21,7 @@ def open_visualStudioCode():
     global d
     path = d['VSCode'].rstrip()
     print(path)
-    subprocess.call(path)
+    subprocess.Popen(path)
 #    path = 'C:\\Users\\jenny\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe'
 #    subprocess.Popen([path])
 
@@ -36,19 +36,19 @@ def open_eclipse():
     global d
     path = d['Eclipse'].rstrip()
     print(path)
-    subprocess.call(path)
+    subprocess.Popen(path)
        
 def open_intelliJ():
     global d
     path = d['IntelliJ'].rstrip()
     print(path)
-    subprocess.call(path)
+    subprocess.Popen(path)
 #    path = 'C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2018.1.6\\bin\\idea64.exe'
 #    subprocess.Popen([path])
 
 def open_github():
     path = 'C:\\Users\\jenny\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
-    subprocess.call([path])
+    subprocess.Popen([path])
     
 def open_program(message):
     
@@ -61,9 +61,10 @@ def open_program(message):
     
     path_file.close()
 
+    pythoncom.CoInitialize()
+    
     if "notepad" in message:
         print(message)
-        pythoncom.CoInitialize()
         shell = win32com.client.Dispatch("WScript.Shell")
         shell.Run("Notepad++")
     elif message == "visual studio code":
