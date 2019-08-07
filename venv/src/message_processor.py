@@ -7,6 +7,7 @@ import win32com.client
 import program_handler
 import browser_handler
 import github_handler
+import intelliJ_handler
 import threading
 import time
   
@@ -48,6 +49,8 @@ def check_queue():
                             browser_handler.stack_overflow_search(message.split("StackOverFlow ",1)[1])
                         elif message.startswith('Github'):
                             github_handler.control_github(message.split("Github ",1)[1])
+                        elif message.startswith('IntelliJ'):
+                            intelliJ_handler.control_intelliJ(message.split("IntelliJ ",1)[1])
             
                 except:
                         pass
