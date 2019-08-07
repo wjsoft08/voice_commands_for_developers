@@ -10,14 +10,20 @@ import github_handler
 import intelliJ_handler
 import threading
 import time
+from main import PlayMenu
   
 access_key = "AKIAZVLOEQ5WAHANHLEJ"
 access_secret = "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"
 region = "us-east-1"
 queue_url = "https://sqs.us-east-1.amazonaws.com/664340301676/computer"
 
-waittime = 20
 
+
+global playMenu
+playMenu = PlayMenu()
+waittime = 20
+global switch
+switch = False
 client = boto3.client('sqs', aws_access_key_id = access_key, aws_secret_access_key = access_secret, region_name = region)
 client.set_queue_attributes(QueueUrl = queue_url, Attributes = {'ReceiveMessageWaitTimeSeconds': str(waittime)})  
 
@@ -30,7 +36,7 @@ def pop_message(client, url):
     client.delete_message(QueueUrl = url, ReceiptHandle = receipt)
     return message
     
-switch = True 
+# switch = True
 
 def check_queue():
     def run(): 
@@ -41,6 +47,7 @@ def check_queue():
                 try:
                         message = pop_message(client, queue_url)
                         print(message)
+                        playMenu.add_message(message)
                         if message.startswith('OpenProgram'):
                             program_handler.open_program(message.split("OpenProgram ",1)[1])
                         elif message.startswith('CloseProgram'):
@@ -59,13 +66,23 @@ def check_queue():
     thread = threading.Thread(target=run)  
     thread.start()
 
-def switchon():    
+
+def switchon(play_menu):
     global switch  
-    switch = True  
+    switch = True
+    global playMenu
+    playMenu = play_menu
     print('switch on')
     check_queue()    
-        
-def switchoff():    
+
+
+def switchoff(play_menu):
     print('switch off')
+    global playMenu
+    playMenu = play_menu
     global switch  
-    switch = False  
+    switch = False
+
+
+def getswitch():
+    return switch

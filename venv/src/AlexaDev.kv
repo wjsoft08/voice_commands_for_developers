@@ -134,8 +134,6 @@ RootWidget:
             orientation: 'horizontal'
 
             CustButton:
+                id: playButton
                 text: "Play"
-                on_press: root.play_clicked()
-            CustButton:
-                text: "Stop"
-                on_press: root.stop_clicked()
+                on_press: root.play_clicked(playButton)

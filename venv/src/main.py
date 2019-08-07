@@ -2,7 +2,7 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import StringProperty, ObjectProperty
 from kivy.uix.screenmanager import Screen
-from kivy.uix.button import Button
+from kivy.uix.label import Label
 import tkinter as tk
 from tkinter import filedialog
 from kivy.core.window import Window
@@ -44,17 +44,28 @@ class PathMenu(Screen):
 
 class PlayMenu(Screen):
     name = StringProperty('play_menu')
+    message_number = 0
 
-    def play_clicked(self):
-        for i in range(20):
-            self.ids.messages.add_widget(Button(text="play clicked", height='200sp'))
-        self.h = i
-        self.ids.messages.size = (1, self.h * 150)
+    def play_clicked(self, playButton):
+
         print('connect starting of alexa app here')
-        message_processor.switchon()
-        
-    def stop_clicked(self):
-        message_processor.switchoff()
+        if message_processor.getswitch():
+            playButton.text = "Play"
+            message_processor.switchoff(self)
+        else:
+            playButton.text = "Stop"
+            message_processor.switchon(self)
+
+    def add_message(self, message):
+        print('add message: '+ message)
+        PlayMenu.message_number += 1
+        # for i in range(20):
+        #     self.ids.messages.add_widget(Label(text="play clicked", height='200sp'))
+        # self.h = i
+        self.ids.messages.add_widget(Label(text=message, height='50sp'))
+        self.h = PlayMenu.message_number
+        self.ids.messages.size = (1, self.h * 50)
+
 
 class RootWidget(Widget):
     state = StringProperty('set_main_menu_state')
