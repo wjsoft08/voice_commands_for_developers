@@ -52,9 +52,17 @@ class PlayMenu(Screen):
         if message_processor.getswitch():
             playButton.text = "Play"
             message_processor.switchoff(self)
+            PlayMenu.message_number += 1
+            self.ids.messages.add_widget(Label(text="Application stopped", height='50sp'))
+            self.h = PlayMenu.message_number
+            self.ids.messages.size = (1, self.h * 50)
         else:
             playButton.text = "Stop"
             message_processor.switchon(self)
+            PlayMenu.message_number += 1
+            self.ids.messages.add_widget(Label(text="Application has started", height='50sp'))
+            self.h = PlayMenu.message_number
+            self.ids.messages.size = (1, self.h * 50)
 
     def add_message(self, message):
         print('add message: '+ message)
