@@ -1,5 +1,5 @@
 Eclipse=C:/Users/User/Downloads/Assignmment1_updated (1).pdf
-IntelliJ=C:/Users/User/Downloads/Assignmment1_updated.pdf
+IntelliJ=
 VSCode=C:/Users/User/Downloads/Assignmment1_updated.pdf
 Chrome=C:/Users/User/Downloads/COMPSCI-702-Notes.pdf
 GitHubDesktop=C:/Users/User/Downloads/COMPSCI-702-Notes.pdf
