@@ -104,19 +104,32 @@ RootWidget:
         BoxLayout:
             size_hint_y: None
             height: 30
-            spacing: 10
 
             # Make the background for the toolbar white
             canvas:
                 Color:
-                    rgba: 1, 1, 1, 1
+                    rgba: (156/255, 156/255, 156/255, 1.0)
                 Rectangle:
                     pos: self.pos
                     size: self.size
+
             Button:
                 id: myButton
                 on_press: root.screen_manager.set_state(root.name)
                 width:30
+                size_hint:(.1, 1)
+                Image:
+                    source: 'setting_icon.png'
+                    y: self.parent.y + 3
+                    x: self.parent.x + 3
+                    size: 24, 24
+                    allow_stretch: True
+
+            Label:
+                width:30
+                size_hint:(.9, 1)
+
+
 
         ScrollView:
             id: MessageScrollView
