@@ -25,72 +25,95 @@ RootWidget:
 <PathMenu>:
     screen_manager: self.screen_manager
     id: PathMenu
-    BoxLayout:
+    GridLayout:
+        rows: 7
         id: filePath
-        orientation: 'vertical'
-
         BoxLayout:
-            orientation: 'horizontal'
+            size_hint_y: None
+            height: 30
+
+            # Make the background for the toolbar white
+            canvas:
+                Color:
+                    rgba: (156/255, 156/255, 156/255, 1.0)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
             Label:
-                id: 'Eclipse'
-                text: 'Eclipse'
-            TextInput:
-                id: pathInput
-                text: ''
-            CustButton:
-                text: "choose path"
-                on_press: root.set_path(pathInput)
+                id: 'FilePathHelp'
+                color: (0, 0, 0, 1)
+                text: 'Set the exe file path of each program'
+
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 1
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    id: 'Eclipse'
+                    text: 'Eclipse'
+                TextInput:
+                    id: pathInput
+                    text: ''
+                CustButton:
+                    text: "choose path"
+                    on_press: root.set_path(pathInput)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    id: 'Intellij'
+                    text: 'Intellij'
+                TextInput:
+                    id: pathInput2
+                    text: ''
+                CustButton:
+                    text: "choose path"
+                    on_press: root.set_path(pathInput2)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    id: 'VSCode'
+                    text: 'VSCode'
+                TextInput:
+                    id: pathInput3
+                    text: ''
+                CustButton:
+                    text: "choose path"
+                    on_press: root.set_path(pathInput3)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    id: 'Chrome'
+                    text: 'Chrome'
+                TextInput:
+                    id: pathInput4
+                    text: ''
+                CustButton:
+                    text: "choose path"
+                    on_press: root.set_path(pathInput4)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    id: 'GitHubDesktop'
+                    text: 'GitHub Desktop'
+                TextInput:
+                    id: pathInput5
+                    text: ''
+                CustButton:
+                    text: "choose path"
+                    on_press: root.set_path(pathInput5)
 
         BoxLayout:
             orientation: 'horizontal'
-            Label:
-                id: 'Intellij'
-                text: 'Intellij'
-            TextInput:
-                id: pathInput2
-                text: ''
-            CustButton:
-                text: "choose path"
-                on_press: root.set_path(pathInput2)
-
-        BoxLayout:
-            orientation: 'horizontal'
-            Label:
-                id: 'VSCode'
-                text: 'VSCode'
-            TextInput:
-                id: pathInput3
-                text: ''
-            CustButton:
-                text: "choose path"
-                on_press: root.set_path(pathInput3)
-
-        BoxLayout:
-            orientation: 'horizontal'
-            Label:
-                id: 'Chrome'
-                text: 'Chrome'
-            TextInput:
-                id: pathInput4
-                text: ''
-            CustButton:
-                text: "choose path"
-                on_press: root.set_path(pathInput4)
-
-        BoxLayout:
-            orientation: 'horizontal'
-            Label:
-                id: 'GitHubDesktop'
-                text: 'GitHub Desktop'
-            TextInput:
-                id: pathInput5
-                text: ''
-            CustButton:
-                text: "choose path"
-                on_press: root.set_path(pathInput5)
-
-        BoxLayout:
-            orientation: 'horizontal'
+            size_hint_y: None
+            height: 30
             CustButton:
                 text: "save paths"
                 on_press: root.save_paths(pathInput.text, pathInput2.text, pathInput3.text, pathInput4.text, pathInput5.text, root.screen_manager, root.name)
