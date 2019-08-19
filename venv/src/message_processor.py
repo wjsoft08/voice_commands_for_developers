@@ -5,9 +5,11 @@ testing SQS
 import boto3
 import win32com.client
 import program_handler
+import eclipse_handler
 import browser_handler
 import github_handler
 import intelliJ_handler
+import vsCode_handler
 import threading
 import time
 from main import PlayMenu
@@ -58,6 +60,10 @@ def check_queue():
                             github_handler.control_github(message.split("Github ",1)[1])
                         elif message.startswith('IntelliJ'):
                             intelliJ_handler.control_intelliJ(message.split("IntelliJ ",1)[1])
+                        elif message.startswith('VSCode'):
+                            vsCode_handler.control_VScode(message.split("VSCode ",1)[1])
+                        elif message.startswith('Eclipse'):
+                            eclipse_handler.control_eclipse(message.split("Eclipse ",1)[1])
             
                 except:
                         pass
