@@ -37,5 +37,3 @@ def control_eclipse(message):
         shell.AppActivate("Eclipse")
         win32api.Sleep(5000)
         shell.SendKeys("^+{F11}")
-    elif "test" in message:
-        
