@@ -49,6 +49,19 @@ def control_github(message):
         shell.AppActivate("GitHub Desktop")
         win32api.Sleep(5000)
         shell.SendKeys("^+u")
+    elif "commit" in message:
+        m = message.split("commit ",1)[1]
+        shell = win32com.client.Dispatch("WScript.Shell")
+        shell.AppActivate("GitHub Desktop")
+        win32api.Sleep(500)
+        shell.SendKeys("^,")
+        win32api.Sleep(500)
+        shell.SendKeys("{ESC}")
+        win32api.Sleep(1000)
+        shell.SendKeys("{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}"+m)
+        win32api.Sleep(1000)
+        shell.SendKeys("{TAB}{TAB}" + "{ENTER}")
+        win32api.Sleep(1000)
     elif "show" in message:
         if "repository" in message:
             print(message)

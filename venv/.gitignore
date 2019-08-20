@@ -211,4 +211,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Ignore all text files
+*.txt
+
 # End of https://www.gitignore.io/api/python,pycharm
