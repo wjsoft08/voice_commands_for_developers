@@ -36,4 +36,4 @@ def control_intelliJ(message):
         shell = win32com.client.Dispatch("WScript.Shell")
         shell.AppActivate("IntelliJ IDEA")
         win32api.Sleep(5000)
-        shell.SendKeys("^%L")
+        shell.SendKeys("^%l")
