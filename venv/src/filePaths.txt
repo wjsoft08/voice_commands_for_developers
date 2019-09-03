@@ -1,5 +1,5 @@
-Eclipse=C:/Users/jenny/eclipse/java-oxygen/eclipse/eclipse.exe
-IntelliJ=C:/Program Files/JetBrains/IntelliJ IDEA Community Edition 2018.1.6/bin/idea64.exe
-VSCode=C:\Users\jenny\AppData\Local\Programs\Microsoft VS Code\Code.exe
+Eclipse=C:\Users\User\eclipse\java-oxygen\eclipse\eclipse.exe
+IntelliJ=D:\Program Files (x86)\JetBrains\IntelliJ IDEA 2018.2.3\bin\idea64.exe
+VSCode=D:\Program Files (x86)\Microsoft VS Code\Code.exe
 Chrome=C:\Program Files (x86)\Google\Chrome\Application
-GitHubDesktop=C:\Users\jenny\AppData\Local\GitHubDesktop\GitHubDesktop.exe
+GitHubDesktop=C:\Users\User\AppData\Local\GitHubDesktop\GitHubDesktop.exe

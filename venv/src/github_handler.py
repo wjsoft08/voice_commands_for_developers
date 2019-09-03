@@ -11,7 +11,7 @@ import subprocess
 import pythoncom
 
 def open_github():
-    path = 'C:\\Users\\jenny\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
+    path = 'C:\\Users\\User\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
     subprocess.Popen([path])
 
 def control_github(message):

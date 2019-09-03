@@ -22,7 +22,7 @@ def open_visualStudioCode():
     path = d['VSCode'].rstrip()
     print(path)
     subprocess.Popen(path)
-#    path = 'C:\\Users\\jenny\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe'
+#    path = 'D:\\Program Files (x86)\\Microsoft VS Code\\Code.exe'
 #    subprocess.Popen([path])
 
 def open_chrome():
@@ -37,17 +37,19 @@ def open_eclipse():
     path = d['Eclipse'].rstrip()
     print(path)
     subprocess.Popen(path)
+    #    path = 'C:\\Users\\User\\eclipse\\java-oxygen\\eclipse\\eclipse.exe'
+    #    subprocess.Popen([path])
        
 def open_intelliJ():
     global d
     path = d['IntelliJ'].rstrip()
     print(path)
     subprocess.Popen(path)
-#    path = 'C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2018.1.6\\bin\\idea64.exe'
+#    path = 'D:\\Program Files (x86)\\JetBrains\\IntelliJ IDEA 2018.2.3\\bin\\idea64.exe'
 #    subprocess.Popen([path])
 
 def open_github():
-    path = 'C:\\Users\\jenny\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
+    path = 'C:\\Users\\User\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
     subprocess.Popen([path])
     
 def open_program(message):
