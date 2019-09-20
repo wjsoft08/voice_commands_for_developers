@@ -78,7 +78,6 @@ def open_program(message):
     elif message == "chrome" or message == "browser":
         open_chrome()
     elif "my" in message:
-        global d
         path = d['MyProgram'].rstrip()
         print(path)
         subprocess.Popen(path)
