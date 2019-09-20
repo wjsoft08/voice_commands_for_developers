@@ -22,8 +22,6 @@ def open_visualStudioCode():
     path = d['VSCode'].rstrip()
     print(path)
     subprocess.Popen(path)
-#    path = 'D:\\Program Files (x86)\\Microsoft VS Code\\Code.exe'
-#    subprocess.Popen([path])
 
 def open_chrome():
     urL='https://www.google.com'
@@ -37,20 +35,20 @@ def open_eclipse():
     path = d['Eclipse'].rstrip()
     print(path)
     subprocess.Popen(path)
-    #    path = 'C:\\Users\\User\\eclipse\\java-oxygen\\eclipse\\eclipse.exe'
-    #    subprocess.Popen([path])
        
 def open_intelliJ():
     global d
     path = d['IntelliJ'].rstrip()
     print(path)
     subprocess.Popen(path)
-#    path = 'D:\\Program Files (x86)\\JetBrains\\IntelliJ IDEA 2018.2.3\\bin\\idea64.exe'
-#    subprocess.Popen([path])
 
 def open_github():
-    path = 'C:\\Users\\User\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
-    subprocess.Popen([path])
+    global d
+    path = d['GitHubDesktop'].rstrip()
+    print(path)
+    subprocess.Popen(path)
+#    path = 'C:\\Users\\jenny\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe'
+#    subprocess.Popen([path])
     
 def open_program(message):
     
@@ -79,6 +77,11 @@ def open_program(message):
         open_intelliJ()
     elif message == "chrome" or message == "browser":
         open_chrome()
+    elif "my" in message:
+        global d
+        path = d['MyProgram'].rstrip()
+        print(path)
+        subprocess.Popen(path)
 
 def close_program(message):    
     if message == "notepad":
@@ -89,6 +92,8 @@ def close_program(message):
         program = "chrome.exe"
     elif message == "I D E" or message == "intelli J" or message == "intelliJ":
         program = "idea64.exe"
+    elif message == "eclipse":
+        program = "eclipse.exe"
     os.system("taskkill /im " + program + " /f")
     
 def checkIfProcessRunning(processName):
