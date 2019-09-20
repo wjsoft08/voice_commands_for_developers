@@ -25,7 +25,7 @@ class PathMenu(Screen):
             except Exception:
                 inputText.text = "Error"
 
-    def save_paths(self, eclipsePath, notepadPath, vscodePath, chromePath, githubPath, screenManager,rootName):
+    def save_paths(self, eclipsePath, notepadPath, vscodePath, chromePath, githubPath, myprogramPath, screenManager,rootName):
 
         print(eclipsePath)
         print(notepadPath)
@@ -35,7 +35,8 @@ class PathMenu(Screen):
         f.write("IntelliJ=" + notepadPath+ "\n")
         f.write("VSCode=" + vscodePath+ "\n")
         f.write("Chrome=" + chromePath+ "\n")
-        f.write("GitHubDesktop=" + githubPath)
+        f.write("GitHubDesktop=" + githubPath+ "\n")
+        f.write("MyProgram=" + myprogramPath)
         f.close()
         print('File path saved')
         print(rootName)
