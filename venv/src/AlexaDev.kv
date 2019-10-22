@@ -21,21 +21,27 @@ RootWidget:
 
 <CustButton@Button>:
     font_size: 16
+    background_normal: ''
+    background_color: (39/255, 129/255, 166/255, 1.0)
 
 <PathMenu>:
     screen_manager: self.screen_manager
     id: PathMenu
     GridLayout:
-        rows: 7
+        rows: 8
         id: filePath
+        canvas:
+            Color:
+                rgb: (22/255, 59/255, 84/255)
+            Rectangle:
+                size: self.size
         BoxLayout:
             size_hint_y: None
             height: 30
 
-            # Make the background for the toolbar white
             canvas:
                 Color:
-                    rgba: (156/255, 156/255, 156/255, 1.0)
+                    rgba: (134/255, 192/255, 227/255, 1.0)
                 Rectangle:
                     pos: self.pos
                     size: self.size
@@ -44,9 +50,10 @@ RootWidget:
                 id: 'FilePathHelp'
                 color: (0, 0, 0, 1)
                 text: 'Set the exe file path of each program'
-
-
-
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 5
         BoxLayout:
             orientation: 'vertical'
             spacing: 1
@@ -110,13 +117,28 @@ RootWidget:
                     text: "choose path"
                     on_press: root.set_path(pathInput5)
 
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    id: 'MyProgram'
+                    text: 'My Program'
+                TextInput:
+                    id: pathInput6
+                    text: ''
+                CustButton:
+                    text: "choose path"
+                    on_press: root.set_path(pathInput6)
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: 5
         BoxLayout:
             orientation: 'horizontal'
             size_hint_y: None
             height: 30
             CustButton:
                 text: "save paths"
-                on_press: root.save_paths(pathInput.text, pathInput2.text, pathInput3.text, pathInput4.text, pathInput5.text, root.screen_manager, root.name)
+                on_press: root.save_paths(pathInput.text, pathInput2.text, pathInput3.text, pathInput4.text, pathInput5.text, pathInput6.text, root.screen_manager, root.name)
 
 
 <PlayMenu>:
@@ -124,6 +146,11 @@ RootWidget:
     id: PlayMenu
     GridLayout:
         rows: 3
+        canvas:
+            Color:
+                rgb: (22/255, 59/255, 84/255)
+            Rectangle:
+                size: self.size
         BoxLayout:
             size_hint_y: None
             height: 30
@@ -131,7 +158,7 @@ RootWidget:
             # Make the background for the toolbar white
             canvas:
                 Color:
-                    rgba: (156/255, 156/255, 156/255, 1.0)
+                    rgba: (134/255, 192/255, 227/255, 1.0)
                 Rectangle:
                     pos: self.pos
                     size: self.size

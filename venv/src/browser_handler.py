@@ -17,3 +17,5 @@ def stack_overflow_search(issue):
 def open_chrome():
     urL='https://www.google.com'
     webbrowser.get('chrome').open_new_tab(urL)
+
+    # https: // www.google.com / search?q =
